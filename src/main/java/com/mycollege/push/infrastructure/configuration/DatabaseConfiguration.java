@@ -5,14 +5,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.bind.ConstructorBinding;
 
 @Getter
-@ConfigurationProperties(prefix = "security")
-public class SecurityConfiguration {
+@ConfigurationProperties(prefix = "mongodb")
+public class DatabaseConfiguration {
 
-    private final String secret;
+    private final String connection;
 
     @ConstructorBinding
-    public SecurityConfiguration(String secret) {
-        this.secret = secret;
+    public DatabaseConfiguration(String connection) {
+        this.connection = connection;
     }
 
 }

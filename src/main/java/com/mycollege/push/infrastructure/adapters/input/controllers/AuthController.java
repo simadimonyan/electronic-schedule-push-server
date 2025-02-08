@@ -1,5 +1,6 @@
 package com.mycollege.push.infrastructure.adapters.input.controllers;
 
+import com.mycollege.push.application.ports.input.dto.AuthRequest;
 import com.mycollege.push.infrastructure.configuration.SecurityConfiguration;
 import com.mycollege.push.infrastructure.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,8 @@ public class AuthController {
     }
 
     @PostMapping("/auth")
-    public String generateToken(@RequestBody String key) {
-        if (key.equals(SECRET)) {
+    public String generateToken(@RequestBody AuthRequest request) {
+        if (request.getSecret().equals(SECRET)) {
             return jwt.createAccessToken();
         }
         return "Forbidden";

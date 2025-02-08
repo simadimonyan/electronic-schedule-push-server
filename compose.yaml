@@ -28,11 +28,14 @@ services:
       - mongodb
     environment:
       - SPRING_DATA_MONGODB_URI=mongodb://root:admin@mongodb:27017/pushserver?authSource=admin
+    volumes:
+      - app_data:/app
     networks:
       - mynetwork
 
 volumes:
   mongo_data:
+  app_data:
 
 networks:
   mynetwork:

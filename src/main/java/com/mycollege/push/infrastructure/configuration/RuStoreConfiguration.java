@@ -1,11 +1,13 @@
 package com.mycollege.push.infrastructure.configuration;
 
+import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.bind.ConstructorBinding;
 
 /**
  * RuStore Configuration properties
  */
+@Getter
 @ConfigurationProperties(prefix = "vk.rustore")
 public class RuStoreConfiguration {
 
@@ -16,14 +18,6 @@ public class RuStoreConfiguration {
     public RuStoreConfiguration(String projectId, String serviceToken) {
         this.projectId = projectId;
         this.serviceToken = serviceToken;
-    }
-
-    public String getProjectId() {
-        return projectId;
-    }
-
-    public String getServiceToken() {
-        return serviceToken;
     }
 
 }
