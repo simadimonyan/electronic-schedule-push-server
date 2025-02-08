@@ -29,7 +29,7 @@ public class LedgerController {
                     request.getPushToken()
             );
 
-            return result ? "Successfully subscribed!"  : "500" ;
+            return result ? "Successfully subscribed!"  : "Token already exists!" ;
         }
 
         return "Forbidden";

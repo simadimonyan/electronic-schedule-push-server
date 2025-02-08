@@ -4,5 +4,5 @@ import com.mycollege.push.infrastructure.adapters.output.persistance.entities.To
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface PushRepository extends MongoRepository<TokenEntity, String> {
-    // spring implementation generation
+    TokenEntity findByPushToken(String pushToken);
 }

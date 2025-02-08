@@ -34,7 +34,22 @@ public class PushService {
      * @return Boolean
      */
     public Boolean subscribe(String macAddress, String phoneModel, String pushToken) {
+        if (isTokenAlreadyExist(pushToken)) {
+            LOGGER.warn("Push token already exists: {}", pushToken);
+            return false;
+        }
         return saveToken(new Token(macAddress, phoneModel, pushToken));
+    }
+
+    /**
+     * Token existence verification
+     *
+     * @param pushToken token to find
+     * @return true, if exists, else false
+     */
+    private Boolean isTokenAlreadyExist(String pushToken) {
+        TokenEntity existingToken = repository.findByPushToken(pushToken);
+        return existingToken != null;
     }
 
     /**
