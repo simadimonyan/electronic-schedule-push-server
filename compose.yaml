@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+
+  mongodb:
+    container_name: mongodb
+    image: 'mongo:latest'
+    environment:
+      - MONGO_INITDB_DATABASE=pushserver
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - mynetwork
+
+
+  app:
+    container_name: pushserver
+    build:
+      context: .
+      dockerfile: DockerFile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://root:admin@mongodb:27017/pushserver?authSource=admin
+    networks:
+      - mynetwork
+
+volumes:
+  mongo_data:
+
+networks:
+  mynetwork:
+    driver: bridge

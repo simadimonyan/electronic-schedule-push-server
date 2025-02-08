@@ -1,0 +1,19 @@
+FROM bellsoft/liberica-runtime-container:jdk-23-glibc
+
+# Установим bash и необходимые зависимости
+RUN /bin/sh -c "if [ ! -f /usr/bin/bash ]; then apk add --no-cache bash; fi"
+
+# Скачиваем и устанавливаем Maven
+RUN wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz -O /tmp/maven.tar.gz \
+    && tar -xvzf /tmp/maven.tar.gz -C /opt/ \
+    && rm /tmp/maven.tar.gz \
+    && ln -s /opt/apache-maven-3.9.9 /opt/maven
+
+# Устанавливаем переменные среды
+ENV MAVEN_HOME=/opt/maven
+ENV PATH=$MAVEN_HOME/bin:$PATH
+
+WORKDIR /app
+COPY . .
+
+CMD mvn spring-boot:run
