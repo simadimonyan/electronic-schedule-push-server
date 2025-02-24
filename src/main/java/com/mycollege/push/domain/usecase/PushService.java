@@ -27,18 +27,18 @@ public class PushService {
     /**
      * Subscribe on notification publications
      *
-     * @param macAddress device MAC address
+     * @param os device operating system id
      * @param phoneModel device model
      * @param pushToken RuStore push-token
      *
      * @return Boolean
      */
-    public Boolean subscribe(String macAddress, String phoneModel, String pushToken) {
+    public Boolean subscribe(String os, String phoneModel, String pushToken) {
         if (isTokenAlreadyExist(pushToken)) {
             LOGGER.warn("Push token already exists: {}", pushToken);
             return false;
         }
-        return saveToken(new Token(macAddress, phoneModel, pushToken));
+        return saveToken(new Token(os, phoneModel, pushToken));
     }
 
     /**
@@ -71,7 +71,7 @@ public class PushService {
             // cluster has 100 tokens per batch
             if (tokenBatch.size() != 100) {
                 tokenBatch.add(new Token(
-                        token.getMacAddress(),
+                        token.getOs(),
                         token.getPhoneModel(),
                         token.getPushToken())
                 );
@@ -99,7 +99,7 @@ public class PushService {
     private Boolean saveToken(Token token) {
 
         TokenEntity entity = new TokenEntity();
-        entity.setMacAddress(token.getMacAddress());
+        entity.setOs(token.getOs());
         entity.setPhoneModel(token.getPhoneModel());
         entity.setPushToken(token.getPushToken());
 

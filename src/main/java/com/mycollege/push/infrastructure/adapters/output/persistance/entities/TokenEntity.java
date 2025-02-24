@@ -15,9 +15,9 @@ public class TokenEntity {
     @Id
     private String id = UUID.randomUUID().toString();;
 
-    @Field(name = "mac_address")
+    @Field(name = "os_id")
     @Indexed(unique = true)
-    private String macAddress;
+    private String os;
 
     @Field(name = "phone_model")
     private String phoneModel;

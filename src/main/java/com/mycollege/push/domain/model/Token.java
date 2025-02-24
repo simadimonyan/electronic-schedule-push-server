@@ -5,12 +5,12 @@ import lombok.Data;
 @Data
 public class Token {
 
-    private String macAddress;
+    private String os;
     private String phoneModel;
     private String pushToken;
 
-    public Token(String macAddress, String phoneModel, String pushToken) {
-        this.macAddress = macAddress;
+    public Token(String os, String phoneModel, String pushToken) {
+        this.os = os;
         this.phoneModel = phoneModel;
         this.pushToken = pushToken;
     }
