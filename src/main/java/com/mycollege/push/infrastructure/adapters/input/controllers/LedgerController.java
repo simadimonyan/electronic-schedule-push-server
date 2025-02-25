@@ -24,7 +24,7 @@ public class LedgerController {
         if (jwt.validateToken(request.getAccessToken())) {
 
             Boolean result = service.subscribe(
-                    request.getMacAddress(),
+                    request.getOs(),
                     request.getPhoneModel(),
                     request.getPushToken()
             );
