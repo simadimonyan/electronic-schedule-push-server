@@ -1,19 +1,20 @@
 FROM bellsoft/liberica-runtime-container:jdk-23-glibc
 
-# Установим bash и необходимые зависимости
+# Устанавливаем bash и необходимые зависимости
 RUN /bin/sh -c "if [ ! -f /usr/bin/bash ]; then apk add --no-cache bash; fi"
 
-# Скачиваем и устанавливаем Maven
-RUN wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz -O /tmp/maven.tar.gz \
-    && tar -xvzf /tmp/maven.tar.gz -C /opt/ \
-    && rm /tmp/maven.tar.gz \
-    && ln -s /opt/apache-maven-3.9.9 /opt/maven
+# Скачиваем и устанавливаем Gradle
+RUN wget https://services.gradle.org/distributions/gradle-8.7-bin.zip -O /tmp/gradle.zip \
+    && unzip /tmp/gradle.zip -d /opt/ \
+    && rm /tmp/gradle.zip \
+    && ln -s /opt/gradle-8.7 /opt/gradle
 
 # Устанавливаем переменные среды
-ENV MAVEN_HOME=/opt/maven
-ENV PATH=$MAVEN_HOME/bin:$PATH
+ENV GRADLE_HOME=/opt/gradle
+ENV PATH=$GRADLE_HOME/bin:$PATH
 
 WORKDIR /app
 COPY . .
 
-CMD mvn clean package && mvn -U clean install && mvn spring-boot:run
+# Запуск сборки и запускаем Spring Boot приложение
+CMD gradle bootRun --no-daemon
