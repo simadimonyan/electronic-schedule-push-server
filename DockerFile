@@ -16,4 +16,4 @@ ENV PATH=$MAVEN_HOME/bin:$PATH
 WORKDIR /app
 COPY . .
 
-CMD mvn clean package && mvn spring-boot:run
+CMD mvn clean package && mvn -U clean install && mvn spring-boot:run
