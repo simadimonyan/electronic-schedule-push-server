@@ -1,4 +1,4 @@
-package com.mycollege.push.domain.model;
+package pushserver.domain.model;
 
 import lombok.Data;
 

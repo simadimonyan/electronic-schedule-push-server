@@ -1,8 +1,6 @@
-package com.mycollege.push.infrastructure.adapters.input.controllers;
+package pushserver.infrastructure.adapters.input.controllers;
 
 import com.mycollege.push.application.ports.input.dto.AuthRequest;
-import com.mycollege.push.domain.model.Token;
-import com.mycollege.push.domain.usecase.PushService;
 import com.mycollege.push.infrastructure.configuration.RuStoreConfiguration;
 import com.mycollege.push.infrastructure.configuration.SecurityConfiguration;
 import okhttp3.*;
@@ -13,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pushserver.domain.model.Token;
+import pushserver.domain.usecase.PushService;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.mycollege.push.infrastructure.security;
+package pushserver.infrastructure.security;
 
 import com.mycollege.push.infrastructure.configuration.SecurityConfiguration;
 import io.jsonwebtoken.Jwts;

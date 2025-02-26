@@ -1,0 +1,9 @@
+spring.application.name=electronic-schedule-push-server
+springdoc.swagger-ui.path=/swagger-ui.html
+
+vk.rustore.projectId=secret
+vk.rustore.serviceToken=secret
+
+security.secret=secret
+
+mongodb.connection=mongodb://root:admin@mongodb:27017/pushserver?authSource=admin
