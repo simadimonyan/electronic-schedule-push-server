@@ -1,7 +1,8 @@
-package com.mycollege.push.application.ports.output.repositories;
+package pushserver.application.ports.output.repositories;
 
-import com.mycollege.push.infrastructure.adapters.output.persistance.entities.TokenEntity;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
+import pushserver.infrastructure.adapters.output.persistance.entities.TokenEntity;
 
 public interface PushRepository extends MongoRepository<TokenEntity, String> {
     TokenEntity findByPushToken(String pushToken);

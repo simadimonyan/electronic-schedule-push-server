@@ -1,4 +1,4 @@
-package com.mycollege.push.application.ports.input.dto;
+package pushserver.application.ports.input.dto;
 
 import lombok.Data;
 

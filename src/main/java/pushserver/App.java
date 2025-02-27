@@ -1,11 +1,11 @@
-package com.mycollege.push;
+package pushserver;
 
-import com.mycollege.push.infrastructure.configuration.DatabaseConfiguration;
-import com.mycollege.push.infrastructure.configuration.RuStoreConfiguration;
-import com.mycollege.push.infrastructure.configuration.SecurityConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import pushserver.infrastructure.configuration.DatabaseConfiguration;
+import pushserver.infrastructure.configuration.RuStoreConfiguration;
+import pushserver.infrastructure.configuration.SecurityConfiguration;
 
 @SpringBootApplication
 @EnableConfigurationProperties({RuStoreConfiguration.class, SecurityConfiguration.class, DatabaseConfiguration.class})

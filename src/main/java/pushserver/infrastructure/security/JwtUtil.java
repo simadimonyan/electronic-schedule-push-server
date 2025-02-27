@@ -1,11 +1,11 @@
 package pushserver.infrastructure.security;
 
-import com.mycollege.push.infrastructure.configuration.SecurityConfiguration;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import pushserver.infrastructure.configuration.SecurityConfiguration;
 
 import javax.crypto.SecretKey;
 import java.util.Random;

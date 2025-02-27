@@ -1,5 +1,7 @@
 spring.application.name=electronic-schedule-push-server
-springdoc.swagger-ui.path=/swagger-ui.html
+
+springdoc.swagger-ui.path=/
+springdoc.swagger-ui.enabled=true
 
 vk.rustore.projectId=secret
 vk.rustore.serviceToken=secret

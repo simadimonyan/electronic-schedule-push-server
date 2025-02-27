@@ -1,13 +1,13 @@
 package pushserver.domain.usecase;
 
-import com.mycollege.push.application.ports.output.repositories.PushRepository;
-import com.mycollege.push.infrastructure.adapters.output.persistance.entities.TokenEntity;
 import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pushserver.application.ports.output.repositories.PushRepository;
 import pushserver.domain.model.Token;
+import pushserver.infrastructure.adapters.output.persistance.entities.TokenEntity;
 
 import java.util.ArrayList;
 import java.util.List;

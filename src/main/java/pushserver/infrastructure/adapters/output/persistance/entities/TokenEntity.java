@@ -1,4 +1,4 @@
-package com.mycollege.push.infrastructure.adapters.output.persistance.entities;
+package pushserver.infrastructure.adapters.output.persistance.entities;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
